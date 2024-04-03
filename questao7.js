@@ -2,15 +2,19 @@
 
 let matriz = [
     [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+    [2, 4, 5],
+    [3, 5, 1]
 ];
-console.log(matriz);
 
-let soma = 0;
-for(let i = 0; i < matriz.length; i++) {
-    for(let j = 0; j < matriz[i].length; j++){
-        soma +=matriz[i][j];
+function matrizAsimetrica(matriz) {
+    for(let i = 0; i < matriz.length; i++) {
+        for(let j = 0; j < i; j++) {
+            if(matriz[i][j] !== matriz[j][i]) {
+                return false
+            }
+        }
     }
-    console.log(soma);
+    return true
 }
+
+console.log(matrizAsimetrica(matriz));
